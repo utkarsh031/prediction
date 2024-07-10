@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Predictor - Results</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Results for {{ company }}</h1>
+        <div class="stock-details">
+            <p><strong>Today's Open Price:</strong> {{ open_s }}</p>
+            <p><strong>Today's Close Price:</strong> {{ close_s }}</p>
+            <p><strong>Today's Adjusted Close Price:</strong> {{ adj_close }}</p>
+            <p><strong>Today's High Price:</strong> {{ high_s }}</p>
+            <p><strong>Today's Low Price:</strong> {{ low_s }}</p>
+            <p><strong>Today's Volume:</strong> {{ vol }}</p>
+        </div>
+        <div class="prediction-results">
+            <p><strong>Predicted Stock Price:</strong> {{ lstm_pred }}</p>
+            <p><strong>Prediction Error (RMSE):</strong> {{ error_lstm }}</p>
+        </div>
+        <div class="prediction-graph">
+            <img src="{% static 'LSTM.png' %}" alt="Stock Price Prediction Graph">
+        </div>
+        <a href="{% url 'index' %}" class="btn btn-primary">Make Another Prediction</a>
+    </div>
+</body>
+</html>
